@@ -28,7 +28,8 @@ public class RestartAppPlugin: NSObject, FlutterPlugin {
     if call.method == "restartApp" {
       self.requestNotificationPermissions { granted in
         if granted {
-          self.sendNotification()
+          // self.sendNotification()
+          print("Notification can be sent")
         }
         exit(0)
       }
@@ -67,21 +68,21 @@ public class RestartAppPlugin: NSObject, FlutterPlugin {
 
   //   UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
   // }
-  private func sendNotification() {
-    let content = UNMutableNotificationContent()
-    // content.title = "Tap to open the app!"
-    // content.body = "This is your custom notification description."
-    // content.sound = UNNotificationSound.default
+//   private func sendNotification() {
+//     let content = UNMutableNotificationContent()
+//     content.title = "Tap to open the app!"
+//     content.body = "This is your custom notification description."
+//     content.sound = UNNotificationSound.default
 
-    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-    let request = UNNotificationRequest(identifier: "RestartApp", content: content, trigger: trigger)
+//     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+//     let request = UNNotificationRequest(identifier: "RestartApp", content: content, trigger: trigger)
 
-    UNUserNotificationCenter.current().add(request) { (error) in
-        if let error = error {
-            print("Error scheduling notification: \(error)")
-        } else {
-            print("Notification scheduled successfully")
-        }
-    }
-}
+//     UNUserNotificationCenter.current().add(request) { (error) in
+//         if let error = error {
+//             print("Error scheduling notification: \(error)")
+//         } else {
+//             print("Notification scheduled successfully")
+//         }
+//     }
+// }
 }

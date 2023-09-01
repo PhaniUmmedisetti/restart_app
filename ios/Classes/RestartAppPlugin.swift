@@ -56,15 +56,32 @@ public class RestartAppPlugin: NSObject, FlutterPlugin {
   ///
   /// This function sets up the notification content and trigger, creates a notification request,
   /// and then adds the request to the notification center.
+  // private func sendNotification() {
+  //   let content = UNMutableNotificationContent()
+  //   content.title = "Tap to open the app!"
+  //   content.body = "This is a test notification"
+  //   content.sound = nil
+
+  //   let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+  //   let request = UNNotificationRequest(identifier: "RestartApp", content: content, trigger: trigger)
+
+  //   UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+  // }
   private func sendNotification() {
     let content = UNMutableNotificationContent()
     content.title = "Tap to open the app!"
-    content.body = "This is a test notification"
-    content.sound = nil
+    content.body = "This is your custom notification description."
+    content.sound = UNNotificationSound.default
 
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
     let request = UNNotificationRequest(identifier: "RestartApp", content: content, trigger: trigger)
 
-    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-  }
+    UNUserNotificationCenter.current().add(request) { (error) in
+        if let error = error {
+            print("Error scheduling notification: \(error)")
+        } else {
+            print("Notification scheduled successfully")
+        }
+    }
+}
 }

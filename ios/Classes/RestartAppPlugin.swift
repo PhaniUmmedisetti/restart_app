@@ -69,9 +69,9 @@ public class RestartAppPlugin: NSObject, FlutterPlugin {
   // }
   private func sendNotification() {
     let content = UNMutableNotificationContent()
-    content.title = "Tap to open the app!"
-    content.body = "This is your custom notification description."
-    content.sound = UNNotificationSound.default
+    // content.title = "Tap to open the app!"
+    // content.body = "This is your custom notification description."
+    // content.sound = UNNotificationSound.default
 
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
     let request = UNNotificationRequest(identifier: "RestartApp", content: content, trigger: trigger)

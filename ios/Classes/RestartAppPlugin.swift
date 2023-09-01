@@ -59,8 +59,8 @@ public class RestartAppPlugin: NSObject, FlutterPlugin {
   /// and then adds the request to the notification center.
   private func sendNotification() {
     let content = UNMutableNotificationContent()
-    content.title = "Tap to open the app!"
-    content.body = "This is a test notification"
+    content.title = "Developer Mode has been switched On"
+    content.body = "Kindly re-open your application!"
     content.sound = nil
 
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)

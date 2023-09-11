@@ -59,7 +59,7 @@ public class RestartAppPlugin: NSObject, FlutterPlugin {
   /// and then adds the request to the notification center.
   private func sendNotification() {
     let content = UNMutableNotificationContent()
-    content.title = "Developer Mode has been switched On"
+    content.title = "Developer Mode status has been updated."
     content.body = "Kindly re-open your application!"
     content.sound = nil
 
